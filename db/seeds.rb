@@ -8,9 +8,17 @@
 
 
 if Rails.env.development?
+  # Create a bunch of genres
+  puts "Creating genres..."
+  FactoryGirl.create_list :genre, 10
+
   # Create a bunch of movies
   puts "Creating movies..."
   FactoryGirl.create_list :movie, 50
+  50.times do
+    FactoryGirl.create :movie,
+        genre: Genre.order("RANDOM()").first
+  end
 
   # Generate a bunch of actors
   puts "Creating actors..."
@@ -18,5 +26,10 @@ if Rails.env.development?
 
   # Now assign random actors to random movies!
   puts "Creating roles..."
-  FactoryGirl.create_list :role, 200
+  #FactoryGirl.create_list :role, 200
+  200.times do
+    FactoryGirl.create :role,
+        movie: Movie.order("RANDOM()").first,
+        actor: Actor.order("RANDOM()").first
+  end
 end
