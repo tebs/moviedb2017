@@ -1,0 +1,8 @@
+<% if Actor.with_birthdays.any? %>
+    <h1>Actors having a birthdate today!</h1>
+    <ul class="actor-list">
+      <% Actor.with_birthdays.each do |actor| %>
+          <li><%= link_to actor.full_name, actor %></li>
+      <% end %>
+    </ul>
+<% end %>

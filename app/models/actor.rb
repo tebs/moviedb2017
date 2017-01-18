@@ -15,6 +15,11 @@ class Actor < ApplicationRecord
     end
   end
 
+  scope :with_birthdays,
+    -> { with_birthdays_on(Date.today) }
+
+  scope :with_birthdays_on,
+    ->(date) { where("strftime('%d-%m', birthdate) = ?", date.strftime("%d-%m")) }
 
   has_many :roles,
     dependent: :destroy
