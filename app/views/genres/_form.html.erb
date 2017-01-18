@@ -1,0 +1,10 @@
+<%= form_for genre do |f| %>
+  <div class="input">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <ul class="action-list">
+    <li><%= f.submit %></li>
+  </ul>
+<% end %>

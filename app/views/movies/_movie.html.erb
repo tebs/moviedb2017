@@ -1,0 +1,6 @@
+<li id="movie_<%= movie.id %>">
+    <%= link_to movie.full_title, movie %>
+
+  <%= link_to fa_icon("edit"), [:edit, movie] %>
+  <%= link_to fa_icon("trash"), movie, method: "delete", remote: true %>
+</li>

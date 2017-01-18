@@ -12,6 +12,11 @@
   <%= simple_format @movie.description %>
 <% end %>
 
+<% if @movie.genre.present? %>
+    <h2>Genre:</h2>
+    <%= simple_format @movie.genre.name %>
+<% end %>
+
 <% if @movie.roles.any? %>
   <h2>Cast:</h2>
   <ul>

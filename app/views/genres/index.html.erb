@@ -1,0 +1,15 @@
+
+<h1>Genres</h1>
+
+<ul class="action-list">
+  <li><%= link_to "New Genre", :new_genre, class: "button" %></li>
+</ul>
+
+
+<h2>Genres:</h2>
+
+<ul class="movie-list">
+  <% @genres.each do |genre| %>
+    <li><%= link_to genre.name, genre %></li>
+  <% end %>
+</ul>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170114151115) do
+ActiveRecord::Schema.define(version: 20170118200140) do
 
   create_table "actors", force: :cascade do |t|
     t.string   "first_name",           null: false
@@ -23,12 +23,21 @@ ActiveRecord::Schema.define(version: 20170114151115) do
     t.index ["last_name", "first_name"], name: "index_actors_on_last_name_and_first_name"
   end
 
+  create_table "genres", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_genres_on_name"
+  end
+
   create_table "movies", force: :cascade do |t|
     t.string   "title",       null: false
     t.integer  "year",        null: false
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "genre_id"
+    t.index ["genre_id"], name: "index_movies_on_genre_id"
     t.index ["title", "year"], name: "index_movies_on_title_and_year", unique: true
   end
 

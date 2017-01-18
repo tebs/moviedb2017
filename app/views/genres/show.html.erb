@@ -1,0 +1,19 @@
+<h1><%= @genre.name %></h1>
+
+<ul class="action-list">
+  <li><%= link_to "Edit", [:edit, @genre], class: "button" %></li>
+  <li><%= link_to "Delete", @genre, method: "delete", class: "button",
+          data: { confirm: "Are you sure? There is no Undo." } %></li>
+</ul>
+
+<% if @genre.name.present? %>
+  <h2>Name:</h2>
+  <%= simple_format @genre.name %>
+<% end %>
+
+<% if @genre.movies.any? %>
+  <h2>Movies:</h2>
+  <ul>
+    <%= render @genre.movies %>
+  </ul>
+<% end %>

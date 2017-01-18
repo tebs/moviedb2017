@@ -7,6 +7,10 @@ class Movie < ApplicationRecord
     presence: true,
     numericality: true
 
+  # not needed in rails 5 since belongs_to already does it by default
+  validates :genre_id,
+    presence: true
+
   scope :alphabetically, -> { order(:title) }
 
   has_many :roles,
@@ -14,6 +18,9 @@ class Movie < ApplicationRecord
 
   has_many :actors,
     through: :roles
+
+  # in rails 5 add  "optional: true" if you want genre to be optional
+  belongs_to :genre
 
   # Renders the full title of the movie, which is a concatenation
   # of its title and year (eg. "Star Wars (1977)")

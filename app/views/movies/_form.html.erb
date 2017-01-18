@@ -22,6 +22,12 @@
   </div>
 
   <div class="input">
+    <%= f.label :genre_id %>
+    <%= f.collection_select :genre_id, Genre.order(:name).all,
+                            :id, :name, include_blank: true %>
+  </div>
+
+  <div class="input">
     <%= f.label :description %>
     <%= f.text_area :description, placeholder: "A summary of the plot." %>
   </div>
