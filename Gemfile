@@ -40,6 +40,8 @@ gem 'font-awesome-rails'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'httparty'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
@@ -68,6 +70,8 @@ group :development, :test do
   # transactional fixtures behavior and clean the database ourselves. We'll
   # use DatabaseCleaner to help us with that.
   gem 'database_cleaner'
+
+  gem 'webmock'
 end
 
 group :development do

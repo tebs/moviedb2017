@@ -22,6 +22,8 @@ class Movie < ApplicationRecord
   # in rails 5 add  "optional: true" if you want genre to be optional
   belongs_to :genre
 
+  before_save :get_poster
+
   # Renders the full title of the movie, which is a concatenation
   # of its title and year (eg. "Star Wars (1977)")
   #
@@ -38,5 +40,11 @@ class Movie < ApplicationRecord
   #
   def to_param
     "#{id}-#{title.parameterize}"
+  end
+
+  def get_poster
+    if title_changed? || year_changed?
+      self.poster_url = ::PosterFetcher.get(self)
+    end
   end
 end

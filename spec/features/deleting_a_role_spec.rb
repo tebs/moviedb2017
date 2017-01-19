@@ -3,7 +3,7 @@ require 'rails_helper'
 feature "deleting a role", js: true do
   # Using `let!` (with an exclamation mark) makes sure the variable
   # is created eagerly. (Without the exclamation mark, it would only be
-  # created lazil, the first time it was used.)
+  # created lazily, the first time it was used.)
   #
   let!(:movie) { create(:movie, title: "Star Wars", year: 1977) }
   let!(:actor) { create(:actor, first_name: "Harrison", last_name: "Ford") }

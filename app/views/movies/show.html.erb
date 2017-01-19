@@ -17,6 +17,11 @@
     <%= simple_format @movie.genre.name %>
 <% end %>
 
+<% if @movie.poster_url.present? %>
+    <h2>Poster:</h2>
+    <%= image_tag @movie.poster_url %>
+<% end %>
+
 <% if @movie.roles.any? %>
   <h2>Cast:</h2>
   <ul>
